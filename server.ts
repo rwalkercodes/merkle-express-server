@@ -11,7 +11,7 @@ app.use(
     origin: "*",
     credentials: true,
     methods: "GET,POST,OPTIONS",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
+    allowedHeaders: "*",
   })
 );
 
