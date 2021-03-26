@@ -6,10 +6,16 @@ import cors = require("cors");
 const app = express();
 
 // cors config
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
+
+app.use(express.json());
 
 // home route for AWS EB
 app.get("/", function (req, res) {
