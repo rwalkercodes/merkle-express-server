@@ -1,7 +1,7 @@
 {
   "name": "merkle_assessment",
   "version": "1.0.0",
-  "main": "server/index.ts",
+  "main": "server.ts",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -18,8 +18,9 @@
     "typescript": "^4.2.3"
   },
   "scripts": {
-    "dev": "nodemon --config nodemon.json src/index.ts",
-    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/index.ts",
+    "start": "nodemon server.ts",
+    "dev": "nodemon --config nodemon.json server.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk server/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

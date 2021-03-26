@@ -1,6 +1,6 @@
 import express from "express";
-import { getUsers } from "./service/admin_service";
-import { register } from "./service/registration_service";
+import { getUsers } from "./src/service/admin_service";
+import { register } from "./src/service/registration_service";
 import cors = require("cors");
 
 const app = express();
