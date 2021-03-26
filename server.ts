@@ -17,7 +17,7 @@ app.use(
 app.use(express.json());
 
 app.get("/", function (req, res) {
-  res.send("hello world");
+  res.send("merkle server running");
 });
 
 app.post("/register", async (req, res) => {
