@@ -5,9 +5,10 @@ import cors = require("cors");
 
 const app = express();
 
+// cors config
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000/",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
@@ -16,10 +17,12 @@ app.use(
 
 app.use(express.json());
 
+// home route for AWS EB
 app.get("/", function (req, res) {
   res.send("merkle server running");
 });
 
+// call to register a user
 app.post("/register", async (req, res) => {
   try {
     let registration = await register(req.body);
@@ -36,6 +39,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// call to get all users
 app.get("/admin-report", async (req, res) => {
   res.header;
   let users = await getUsers();
@@ -44,6 +48,7 @@ app.get("/admin-report", async (req, res) => {
   } else res.status(200).send(users);
 });
 
+// port
 const port = process.env.port || 8081;
 app.listen(port, () => {
   console.log("server listening on port 8081");
