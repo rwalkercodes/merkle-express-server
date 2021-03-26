@@ -5,7 +5,11 @@ import cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(express.json());
 
@@ -20,7 +24,6 @@ app.post("/register", async (req, res) => {
         res.status(400).send("Bad Request");
       } else res.status(200).send("Successfully Registered");
     }
-    //res.json(registerUser);
   } catch (error) {
     console.log("Error! " + error);
   }
