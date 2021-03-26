@@ -6,13 +6,10 @@ import cors = require("cors");
 const app = express();
 
 // cors config
-app.use(
-  cors({
-    origin: ["*", "http://localhost:3000"],
-    credentials: true,
-  })
-);
-app.use(express.json());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 // home route for AWS EB
 app.get("/", function (req, res) {
