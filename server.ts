@@ -16,6 +16,10 @@ app.use(
 
 app.use(express.json());
 
+app.get("/", function (req, res) {
+  res.send("hello world");
+});
+
 app.post("/register", async (req, res) => {
   try {
     let registration = await register(req.body);
